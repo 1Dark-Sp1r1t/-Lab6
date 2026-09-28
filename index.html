@@ -1,69 +1,85 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вікторина</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вікторина</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
 </head>
 <body>
 
-  <header>
-    <h1>Вікторина</h1>
-    <nav>
-      <a href="#current-question">Питання</a>
-      <a href="#history">Результати</a>
-    </nav>
-  </header>
-  
-  <main>
-    <!-- Секція поточного питання -->
-  <section id="current-question">
-  <div class="progress-container">
-    <span class="question-number">Усі питання вікторини</span>
-    <div class="progress-bar">
-      <div class="progress-fill" style="width: 100%;"></div>
-    </div>
-  </div>
-  
-  <h2>Поточні питання</h2>
-  
-  <!-- Сюди ми будемо динамічно додавати питання через JS -->
-  <ul id="questions-list"></ul>
-  
-  <!-- Елемент підсумку (Крок 9) -->
-  <p id="questions-count">Кількість питань: 0</p>
+  <header>
+    <h1>Вікторина</h1>
+    <nav>
+      <a href="#current-question">Питання</a>
+      <a href="#history">Результати</a>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- Секція поточного питання -->
+   <section id="current-question">
+  <!-- Додано прогрес і номер (інтерпретація нечіткої вимоги) -->
+  <div class="progress-container">
+    <span class="question-number">Питання 1 з 10</span>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 10%;"></div>
+    </div>
+  </div>
+  
+  <h2>Поточне питання</h2>
+  <p>Яка планета Сонячної системи є найбільшою?</p>
+  
+  <form action="#" method="get">
+    <!-- Додано класи станів для чіткої вимоги (correct/wrong) -->
+    <div>
+      <input type="radio" id="ans-mars" name="planet" value="mars">
+      <label for="ans-mars" class="wrong-answer">Марс <span>(Помилка ✘)</span></label>
+    </div>
+    <div>
+      <input type="radio" id="ans-jupiter" name="planet" value="jupiter">
+      <label for="ans-jupiter" class="correct-answer">Юпітер <span>(Правильно ✔)</span></label>
+    </div>
+    <div>
+      <input type="radio" id="ans-saturn" name="planet" value="saturn">
+      <label for="ans-saturn">Сатурн</label>
+    </div>
+    <div>
+      <input type="radio" id="ans-venus" name="planet" value="venus">
+      <label for="ans-venus">Венера</label>
+    </div>
+  </form>
 </section>
 
-    <!-- Секція історії спроб -->
-    <section id="history">
-      <h2>Історія спроб</h2>
-      
-      <!-- Спільний контейнер для карток (Крок 3) -->
-      <div class="cards">
-        <article>
-          <h3>10.09.2026</h3>
-          <p>Результат: 8/10</p>
-        </article>
-        
-        <article>
-          <h3>11.09.2026</h3>
-          <p>Результат: 10/10</p>
-        </article>
+    <!-- Секція історії спроб -->
+    <section id="history">
+      <h2>Історія спроб</h2>
+      
+      <!-- Спільний контейнер для карток (Крок 3) -->
+      <div class="cards">
+        <article>
+          <h3>10.09.2026</h3>
+          <p>Результат: 8/10</p>
+        </article>
+        
+        <article>
+          <h3>11.09.2026</h3>
+          <p>Результат: 10/10</p>
+        </article>
 
-        <article>
-          <h3>12.09.2026</h3>
-          <p>Результат: 9/10</p>
-        </article>
-      </div>
-    </section>
-  </main>
+        <article>
+          <h3>12.09.2026</h3>
+          <p>Результат: 9/10</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    <p>Авторство: [Дяченко Богдан] &copy; 2026</p>
-  </footer>
+  <footer>
+    <p>Авторство: [Дяченко Богдан] &copy; 2026</p>
+  </footer>
 
-  
 </body>
 </html>
+
