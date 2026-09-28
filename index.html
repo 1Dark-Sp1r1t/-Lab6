@@ -19,37 +19,21 @@
   
   <main>
     <!-- Секція поточного питання -->
-   <section id="current-question">
-  <!-- Додано прогрес і номер (інтерпретація нечіткої вимоги) -->
+  <section id="current-question">
   <div class="progress-container">
-    <span class="question-number">Питання 1 з 10</span>
+    <span class="question-number">Усі питання вікторини</span>
     <div class="progress-bar">
-      <div class="progress-fill" style="width: 10%;"></div>
+      <div class="progress-fill" style="width: 100%;"></div>
     </div>
   </div>
   
-  <h2>Поточне питання</h2>
-  <p>Яка планета Сонячної системи є найбільшою?</p>
+  <h2>Поточні питання</h2>
   
-  <form action="#" method="get">
-    <!-- Додано класи станів для чіткої вимоги (correct/wrong) -->
-    <div>
-      <input type="radio" id="ans-mars" name="planet" value="mars">
-      <label for="ans-mars" class="wrong-answer">Марс <span>(Помилка ✘)</span></label>
-    </div>
-    <div>
-      <input type="radio" id="ans-jupiter" name="planet" value="jupiter">
-      <label for="ans-jupiter" class="correct-answer">Юпітер <span>(Правильно ✔)</span></label>
-    </div>
-    <div>
-      <input type="radio" id="ans-saturn" name="planet" value="saturn">
-      <label for="ans-saturn">Сатурн</label>
-    </div>
-    <div>
-      <input type="radio" id="ans-venus" name="planet" value="venus">
-      <label for="ans-venus">Венера</label>
-    </div>
-  </form>
+  <!-- Сюди ми будемо динамічно додавати питання через JS -->
+  <ul id="questions-list"></ul>
+  
+  <!-- Елемент підсумку (Крок 9) -->
+  <p id="questions-count">Кількість питань: 0</p>
 </section>
 
     <!-- Секція історії спроб -->

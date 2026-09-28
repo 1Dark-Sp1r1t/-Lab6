@@ -1,5 +1,6 @@
-console.log('script.js підключено');
+console.log('script.js підключено та працює з DOM');
 
+// Дані: масив питань (з 6 лаби)
 const quizQuestions = [
   { question: 'Яка планета Сонячної системи є найбільшою?', answer: 'Юпітер' },
   { question: 'Скільки континентів на Землі?', answer: '7' },
@@ -7,39 +8,36 @@ const quizQuestions = [
   { question: 'Як називається найдовша річка у світі?', answer: 'Амазонка' }
 ];
 
+// Крок 3. Вибрати контейнери в DOM
+const listContainer = document.querySelector('#questions-list');
+const countElement = document.querySelector('#questions-count');
 
-function checkQuizAnswers(questions, userAnswers) {
-  let correctCount = 0; 
+// Крок 4. Написати функцію рендеру
+function renderQuestions(questionsArray) {
+  // Очищаємо контейнер перед виведенням нового контенту
+  listContainer.innerHTML = '';
 
-  for (const item of questions) {
-    console.log(`\nПитання: ${item.question}`);
+  // Перебираємо масив циклом
+  for (const item of questionsArray) {
+    // Крок 5. Створити елемент li
+    const listItem = document.createElement('li');
     
-    const currentAnswer = userAnswers.shift(); 
-    console.log(`Відповідь користувача: ${currentAnswer}`);
+    // Заповнити текст
+    listItem.textContent = item.question;
 
-    if (currentAnswer === item.answer) {
-      console.log('Результат: Правильно ✔');
-      correctCount++;
-    } else {
-      console.log(`Результат: Неправильно ✘ (Правильна відповідь: ${item.answer})`);
-    }
+    // Крок 6. Додати атрибут та клас
+    // Додаємо data-атрибут із правильною відповіддю
+    listItem.dataset.answer = item.answer; 
+    // Додаємо клас згідно з варіантом 8
+    listItem.classList.add('answered');
+
+    // Крок 7. Додати елемент у контейнер
+    listContainer.append(listItem);
   }
 
-  return correctCount; 
+  // Крок 9. Оновити підсумковий елемент
+  countElement.textContent = `Кількість питань: ${questionsArray.length}`;
 }
 
-const calcScorePercent = (correctCount, total) => Math.round((correctCount / total) * 100);
-
-
-console.log('--- ПОЧАТОК ВІКТОРИНИ ---');
-
-const testUserAnswers = ['Юпітер', '6', 'Кисень', 'Амазонка']; 
-
-const totalQuestions = quizQuestions.length;
-const finalCorrectCount = checkQuizAnswers(quizQuestions, testUserAnswers);
-
-const scorePercent = calcScorePercent(finalCorrectCount, totalQuestions);
-
-console.log('\n--- ПІДСУМКИ ---');
-console.log(`Загальний бал: ${finalCorrectCount} з ${totalQuestions}`);
-console.log(`Відсоток успішності: ${scorePercent}%`);
+// Крок 8. Викликати рендер
+renderQuestions(quizQuestions);
